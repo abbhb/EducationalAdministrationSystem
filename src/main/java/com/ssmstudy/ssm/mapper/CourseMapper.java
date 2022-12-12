@@ -9,10 +9,10 @@ public interface CourseMapper {
 
     /**
      * 通过周来获取当周的课表
-     * @param zhou
+     * @param id
      * @return
      */
-    List<Course> getAllCourseByZhou(@Param("zhou") Integer zhou);
+    List<Course> getCourseById(@Param("id") Integer id);
 
 
 }

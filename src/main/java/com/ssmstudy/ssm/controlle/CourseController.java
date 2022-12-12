@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Signature;
 import java.util.Map;
 
 /**
@@ -24,9 +25,11 @@ public class CourseController {
     @Autowired
     private CouserService couserService;
     @NeedToken
-    @RequestMapping(value = "/course/allcourseinfo",method = RequestMethod.GET)
-    public DataResult getAllCourseInfo(){
-        return couserService.getAllCourseInfo();
+    @RequestMapping(value = "/course/courseinfo",method = RequestMethod.POST)
+    public DataResult getCourseInfo(@RequestBody Map<String, Object> course){
+        Integer id = (Integer) course.get("id");
+        Integer zhou = (Integer) course.get("z");
+        return couserService.getCourseInfoByZhou(id,zhou);
     }
 
 }

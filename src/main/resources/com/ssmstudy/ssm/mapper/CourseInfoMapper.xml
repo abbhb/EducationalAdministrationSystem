@@ -3,5 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssmstudy.ssm.mapper.CourseInfoMapper">
+    <sql id="allcourseinfo">id,course_id,week,weekday,begin,length,classroom</sql>
 
+<!--    List<CourseInfo> getCourseByZhou(Integer zhou);-->
+    <select id="getCourseByZhou" resultType="CourseInfo">
+        select <include refid="allcourseinfo"></include> from t_courseinfo where week = #{zhou}
+    </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.ssmstudy.ssm.service.impl;
 
 import com.google.gson.*;
 import com.ssmstudy.ssm.Const;
+import com.ssmstudy.ssm.mapper.CourseInfoMapper;
 import com.ssmstudy.ssm.mapper.CourseMapper;
 import com.ssmstudy.ssm.pojo.DataResult;
 import com.ssmstudy.ssm.pojo.course.Course;
@@ -17,12 +18,16 @@ import java.util.List;
 public class CourseServiceImpl implements CouserService {
     @Autowired
     private CourseMapper courseMapper;
+    @Autowired
+    private CourseInfoMapper courseInfoMapper;
+
     @Override
-    public DataResult getAllCourseInfo() {
-        Integer zhou = 1;//第一周
-        List<Course> allCourse = courseMapper.getAllCourseByZhou(zhou);
+    public DataResult getCourseInfoByZhou(Integer id, Integer zhou) {
+        List<Course> allCourse = courseMapper.getCourseById(id);
+        List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(zhou);
 
         System.out.println(allCourse);
+        System.out.println(courseByZhou);
         List<CourseInfo> courseInfos = new ArrayList<CourseInfo>();
         DataResult dataResult = new DataResult();
 
@@ -31,5 +36,4 @@ public class CourseServiceImpl implements CouserService {
         dataResult.setData(courseInfos);
         return dataResult;
     }
-
 }
