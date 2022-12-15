@@ -3,5 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssmstudy.ssm.mapper.KlassMapper">
+    <sql id="allklass">klass_id,klass_name,professional_id</sql>
+<!--    Klass getKlassById(@Param("id") Integer id);-->
+    <select id="getKlassById" resultType="Klass">
+        select <include refid="allklass"></include> from klass where klass_id = #{id}
+    </select>
 
+<!--    List<Klass> getKlassByProfessionalId(@Param("professionalId") Integer professionalId);-->
+    <select id="getKlassByProfessionalId" resultType="Klass">
+        select <include refid="allklass"></include> from klass where professional_id = #{professionalId}
+    </select>
 </mapper>

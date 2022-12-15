@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssmstudy.ssm.mapper.ProfessionalMapper">
+    <sql id="allprofessional">id,professional_name,professional_college_id</sql>
+    <sql id="professionalforname">id,professional_name</sql>
+<!--    Professional getProfessionalById(@Param("id") Integer id);-->
+    <select id="getProfessionalById" resultType="Professional">
+        select <include refid="allprofessional"></include> from t_professional where id = #{id}
+    </select>
+
+<!--    List<Professional> getAllProfessional();-->
+    <select id="getAllProfessional" resultType="Professional">
+        select <include refid="professionalforname"></include> from t_professional
+    </select>
+</mapper>

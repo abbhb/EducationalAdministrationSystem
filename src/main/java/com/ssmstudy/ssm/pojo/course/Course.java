@@ -10,7 +10,7 @@ public class Course {
 
     private Integer courseTeacherId;
 
-    private Integer klass;
+
 
     private Double credits;
 
@@ -18,11 +18,10 @@ public class Course {
     public Course() {
     }
 
-    public Course(Integer id, String courseName, Integer courseTeacherId, Integer klass, Double credits) {
+    public Course(Integer id, String courseName, Integer courseTeacherId, Double credits) {
         this.id = id;
         this.courseName = courseName;
         this.courseTeacherId = courseTeacherId;
-        this.klass = klass;
         this.credits = credits;
     }
 
@@ -50,13 +49,6 @@ public class Course {
         this.courseTeacherId = courseTeacherId;
     }
 
-    public Integer getKlass() {
-        return klass;
-    }
-
-    public void setKlass(Integer klass) {
-        this.klass = klass;
-    }
 
     public Double getCredits() {
         return credits;
@@ -72,7 +64,6 @@ public class Course {
                 "id=" + id +
                 ", courseName='" + courseName + '\'' +
                 ", courseTeacherId=" + courseTeacherId +
-                ", klass=" + klass +
                 ", credits=" + credits +
                 '}';
     }

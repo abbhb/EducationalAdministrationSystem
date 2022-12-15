@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 public class AuthorizationInterceptor implements HandlerInterceptor {
-    @Resource
+    @Autowired
     private RedisService redisService;
 
 

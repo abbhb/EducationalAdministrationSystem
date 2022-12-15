@@ -1,0 +1,1 @@
+``Teacher相关的功能暂时放在user表，目前仅用到teacherId来获取teacherName``

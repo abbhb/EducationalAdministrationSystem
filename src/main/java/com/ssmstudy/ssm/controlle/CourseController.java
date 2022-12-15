@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.security.Signature;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -27,9 +28,28 @@ public class CourseController {
     @NeedToken
     @RequestMapping(value = "/course/courseinfo",method = RequestMethod.POST)
     public DataResult getCourseInfo(@RequestBody Map<String, Object> course){
-        Integer id = (Integer) course.get("id");
         Integer zhou = (Integer) course.get("z");
-        return couserService.getCourseInfoByZhou(id,zhou);
+        Integer banji = (Integer) course.get("banji");
+
+        return couserService.getCourseInfoByZhou(zhou,banji);
     }
 
+    @NeedToken
+    @RequestMapping(value = "/course/thisweekcourseinfo",method = RequestMethod.GET)
+    public DataResult getThisWeekCourseInfo(){
+        return couserService.getThisWeekCourseInfo();
+    }
+
+    @NeedToken
+    @RequestMapping(value = "/course/courseinfo/maxweek",method = RequestMethod.POST)
+    public DataResult getMaxWeek(@RequestBody Map<String, Object> course){
+        Integer klassid = (Integer) course.get("classid");
+        return couserService.getMaxWeek(klassid);
+    }
+
+    @NeedToken
+    @RequestMapping(value = "/course/getcascaderlist",method = RequestMethod.GET)
+    public DataResult getCascaderList(){
+        return couserService.getCascaderList();
+    }
 }

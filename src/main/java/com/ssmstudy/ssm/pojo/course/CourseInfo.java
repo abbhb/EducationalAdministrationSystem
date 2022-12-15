@@ -16,10 +16,14 @@ public class CourseInfo {
 
     private String classroom;
 
+
+
+    private Integer klass;//为klassid
+
     public CourseInfo() {
     }
 
-    public CourseInfo(Integer id, Integer courseId, Integer week, Integer weekday, Integer begin, Integer length, String classroom) {
+    public CourseInfo(Integer id, Integer courseId, Integer week, Integer weekday, Integer begin, Integer length, String classroom, Integer klass) {
         this.id = id;
         this.courseId = courseId;
         this.week = week;
@@ -27,6 +31,16 @@ public class CourseInfo {
         this.begin = begin;
         this.length = length;
         this.classroom = classroom;
+        this.klass = klass;
+    }
+
+
+    public Integer getKlass() {
+        return klass;
+    }
+
+    public void setKlass(Integer klass) {
+        this.klass = klass;
     }
 
     @Override
@@ -39,8 +53,10 @@ public class CourseInfo {
                 ", begin=" + begin +
                 ", length=" + length +
                 ", classroom='" + classroom + '\'' +
+                ", klass=" + klass +
                 '}';
     }
+
 
     public Integer getId() {
         return id;

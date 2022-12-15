@@ -6,6 +6,13 @@
     <sql id="userall">
         id,name,username,email,age,register_time,last_modification_time,dept,userphoto,gender
     </sql>
+    <sql id="teacherInfo">
+        id,name,userphoto
+    </sql>
+    <!--        User getTeacherInfo(@Param("teacherId") Integer teacherId);-->
+    <select id="getTeacherInfo" resultType="User">
+        select <include refid="teacherInfo"></include> from t_user where id = #{teacherId}
+    </select>
 <!--    User login(@Param("username") String username, @Param("password") String password);-->
     <select id="login" resultType="User">
         select <include refid="userall"></include> from t_user where username = #{username} and password = #{password}

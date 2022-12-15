@@ -3,14 +3,12 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssmstudy.ssm.mapper.TeacherMapper">
-    <sql id="allteacher">tid,course_id</sql>
-<!--    List<Teacher> getAllTeacher();-->
-    <select id="getAllTeacher" resultType="Teacher">
-        select <include refid="allteacher"></include> from t_teacher
+
+    <sql id="allteacher">tid</sql>
+
+<!--    Teacher getTeacherById(@Param("id") Integer id);-->
+    <select id="getTeacherById" resultType="Teacher">
+        select <include refid="allteacher"></include> from t_teacher where tid = #{id}
     </select>
 
-<!--    List<Teacher> getTeacherByCourseId(@Param("courseId") String courseId);-->
-    <select id="getTeacherByCourseId" resultType="Teacher">
-        select <include refid="allteacher"></include> from t_teacher where course_id = #{courseId}
-    </select>
 </mapper>

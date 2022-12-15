@@ -12,7 +12,11 @@ public interface CourseMapper {
      * @param id
      * @return
      */
-    List<Course> getCourseById(@Param("id") Integer id);
+    Course getCourseById(@Param("id") Integer id);
 
-
+    /**
+     * 获取所有课程
+     * @return
+     */
+    List<Course> getAllCourseByKlass();
 }
