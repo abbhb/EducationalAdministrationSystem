@@ -9,41 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="18:58">
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/ProfessionalMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/Professional.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCascaderData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCascaderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourseInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourseInfoThisWeek.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/CourseUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/ProfessionalMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Authorization/AuthorizationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Authorization/AuthorizationInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/TeacherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseInfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/KlassMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/KlassMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/TeacherMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/TeacherMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/Klass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/Klass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/CourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/CourseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/teacher/Teacher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/teacher/Teacher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/CouserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/CouserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/TeacherService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/RedisService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/TeacherServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseInfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/KlassMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/KlassMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/TeacherMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/TeacherMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/UserMapper.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="课程表展示功能基本完成" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +128,7 @@
       <workItem from="1670813817690" duration="14642000" />
       <workItem from="1670896312297" duration="7094000" />
       <workItem from="1671002027156" duration="15904000" />
-      <workItem from="1671086937586" duration="3414000" />
+      <workItem from="1671086937586" duration="4103000" />
     </task>
     <task id="LOCAL-00001" summary="基本">
       <created>1670832903310</created>
@@ -178,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670842723003</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="课程表展示功能基本完成">
+      <created>1671098082446</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671098082446</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +160,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="基本" />
     <MESSAGE value="18:58" />
-    <option name="LAST_COMMIT_MESSAGE" value="18:58" />
+    <MESSAGE value="课程表展示功能基本完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="课程表展示功能基本完成" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
