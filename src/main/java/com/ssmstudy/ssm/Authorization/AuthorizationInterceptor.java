@@ -1,20 +1,24 @@
 package com.ssmstudy.ssm.Authorization;
 
-import com.ssmstudy.ssm.service.impl.RedisService;
+import com.ssmstudy.ssm.service.IRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
+/**
+ * 拦截器中获取了redis在业务逻辑中就无法获取？？？
+ */
+@Component
 public class AuthorizationInterceptor implements HandlerInterceptor {
-    @Autowired
-    private RedisService redisService;
 
+    @Autowired
+    private IRedisService iRedisService;
 
     @Override
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
@@ -26,7 +30,12 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
 
-        //如果验证token失败，并且方法注明了Authorization，返回401错误
+        if (method.getAnnotation(Authorization.class) != null){
+            //权限校验
+            return true;
+        }
+        //token校验
+        //如果验证token失败，返回401错误
         if (method.getAnnotation(NeedToken.class) != null) {
             //从header中得到token
             String authorization = httpServletRequest.getHeader("Authorization");
@@ -34,16 +43,12 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
                 authorization="";
             }
             //System.out.println("authorization = " + authorization);
-            //验证token
-            boolean b = redisService.hasKey(authorization);
+            boolean b = iRedisService.checkToken("logintoken:" + authorization);
             System.out.println("校验了，"+b);
+            System.out.println("logintoken:"+authorization);
             if (b) {
+                return true;
 
-                if (method.getAnnotation(Authorization.class) != null){
-
-                }else {
-                    return true;
-                }
             /*权限校验开始
             //请求路径
             String servletPath = httpServletRequest.getServletPath();
@@ -63,7 +68,6 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
             权限校验结束*/
 
             }
-
             httpServletResponse.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return false;
         }

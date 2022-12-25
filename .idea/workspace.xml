@@ -9,7 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="课程表展示功能基本完成" />
+    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="课程表展示功能基本完成">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/IRedisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/IRedisServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/SerializeUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-redis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Authorization/AuthorizationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Authorization/AuthorizationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/login/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/login/LoginResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/RedisUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SpringMVC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SpringMVC.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestForRedis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestForRedis.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,12 +37,12 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="spring-beans.schema" />
         <option value="mybatis-config" />
         <option value="log4j" />
         <option value="HTML File" />
-        <option value="AnnotationType" />
         <option value="mybatis-mapper" />
+        <option value="AnnotationType" />
+        <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -129,6 +148,8 @@
       <workItem from="1670896312297" duration="7094000" />
       <workItem from="1671002027156" duration="15904000" />
       <workItem from="1671086937586" duration="4103000" />
+      <workItem from="1671859638320" duration="19242000" />
+      <workItem from="1671946982912" duration="12212000" />
     </task>
     <task id="LOCAL-00001" summary="基本">
       <created>1670832903310</created>
@@ -151,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671098082446</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="课程表展示功能基本完成">
+      <created>1671859662152</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671859662152</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +190,21 @@
     <MESSAGE value="18:58" />
     <MESSAGE value="课程表展示功能基本完成" />
     <option name="LAST_COMMIT_MESSAGE" value="课程表展示功能基本完成" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
+        <watch expression="redisUtil" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

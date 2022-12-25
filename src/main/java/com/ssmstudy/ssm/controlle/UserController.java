@@ -2,7 +2,9 @@ package com.ssmstudy.ssm.controlle;
 
 import com.ssmstudy.ssm.Authorization.NeedToken;
 import com.ssmstudy.ssm.pojo.DataResult;
+import com.ssmstudy.ssm.service.IRedisService;
 import com.ssmstudy.ssm.service.UserService;
+import com.sun.tracing.dtrace.Attributes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private IRedisService iRedisService;
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ResponseBody
     public DataResult login(@RequestBody Map<String, Object> user){
@@ -42,16 +46,17 @@ public class UserController {
         DataResult dataResult = userService.deleteToken(token);
         return dataResult;
     }
-    @NeedToken
+
     @RequestMapping(value = "/updataforuser",method = RequestMethod.POST)
     @ResponseBody
-    public DataResult updataForUser(@RequestBody Map<String, Object> user,@RequestHeader(value="Authorization", defaultValue = "") String token){
+    @NeedToken
+    public DataResult updataForUser(@RequestHeader(value="Authorization", defaultValue = "") String token, @RequestBody Map<String, Object> user){
+
         String name = (String) user.get("name");
-        Integer age = Integer.valueOf((String) user.get("age"));
+        Integer age = Integer.valueOf((String) user.get("age")+"");
         String gender = (String) user.get("gender");
         String email = (String) user.get("email");
         DataResult dataResult = userService.updataForUser(token,name,age,gender,email);
         return dataResult;
-
     }
 }

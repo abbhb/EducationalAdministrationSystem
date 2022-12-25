@@ -25,6 +25,7 @@ import java.util.Map;
 public class CourseController {
     @Autowired
     private CouserService couserService;
+
     @NeedToken
     @RequestMapping(value = "/course/courseinfo",method = RequestMethod.POST)
     public DataResult getCourseInfo(@RequestBody Map<String, Object> course){
@@ -34,11 +35,13 @@ public class CourseController {
         return couserService.getCourseInfoByZhou(zhou,banji);
     }
 
+
     @NeedToken
     @RequestMapping(value = "/course/thisweekcourseinfo",method = RequestMethod.GET)
     public DataResult getThisWeekCourseInfo(){
         return couserService.getThisWeekCourseInfo();
     }
+
 
     @NeedToken
     @RequestMapping(value = "/course/courseinfo/maxweek",method = RequestMethod.POST)
@@ -46,6 +49,7 @@ public class CourseController {
         Integer klassid = (Integer) course.get("classid");
         return couserService.getMaxWeek(klassid);
     }
+
 
     @NeedToken
     @RequestMapping(value = "/course/getcascaderlist",method = RequestMethod.GET)

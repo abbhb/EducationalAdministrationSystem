@@ -2,7 +2,9 @@ package com.ssmstudy.ssm.pojo.login;
 
 import com.ssmstudy.ssm.pojo.User;
 
-public class LoginResult {
+import java.io.Serializable;
+
+public class LoginResult implements Serializable {
     private String token;
 
     private User user;

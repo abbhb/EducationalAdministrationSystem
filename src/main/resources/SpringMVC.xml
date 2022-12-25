@@ -51,7 +51,7 @@
                 /是web项目的根目录
             -->
             <mvc:mapping path="/**"/>
-            <bean class="com.ssmstudy.ssm.Authorization.AuthorizationInterceptor"></bean>
+            <bean id="AuthorizationInterceptor" class="com.ssmstudy.ssm.Authorization.AuthorizationInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
 
