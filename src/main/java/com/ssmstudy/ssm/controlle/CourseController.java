@@ -35,8 +35,8 @@ public class CourseController {
 
     @NeedToken
     @RequestMapping(value = "/course/thisweekcourseinfo",method = RequestMethod.GET)
-    public DataResult getThisWeekCourseInfo(){
-        return couserService.getThisWeekCourseInfo();
+    public DataResult getThisWeekCourseInfo(@RequestParam(name = "klassId", required = true)Integer klassId){
+        return couserService.getThisWeekCourseInfo(klassId);
     }
 
 

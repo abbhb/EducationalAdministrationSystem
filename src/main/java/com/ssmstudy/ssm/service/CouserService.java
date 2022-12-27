@@ -15,7 +15,7 @@ public interface CouserService {
      * 获取本周课表以及第几周了
      * @return
      */
-    DataResult getThisWeekCourseInfo();
+    DataResult getThisWeekCourseInfo(Integer klassId);
 
     DataResult getMaxWeek(Integer klassid);
 

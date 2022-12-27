@@ -89,7 +89,7 @@ public class CourseServiceImpl implements CouserService {
     }
 
     @Override
-    public DataResult getThisWeekCourseInfo() {
+    public DataResult getThisWeekCourseInfo(Integer klassId) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
         Date d=new Date();
@@ -109,7 +109,7 @@ public class CourseServiceImpl implements CouserService {
 
 
         List<ResultCourseInfo> courseInfos = new ArrayList<>();
-        List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(weeks,1);//默认1班，得改成传参过来
+        List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(weeks,klassId);
         List<Course> courses = courseMapper.getAllCourseByKlass();//暂时模拟下班级查询课表
         List<ResultCourseInfo> resultCourseInfoList = new ArrayList<>();
         for (int i=1;i<=7;i++){
