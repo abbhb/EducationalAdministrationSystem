@@ -3,5 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssmstudy.ssm.mapper.StudentMapper">
-
+    <sql id="allstudent">sid,klass_id,credits</sql>
+<!--    Student getKlassIdBySid(@Param("id") Integer id);-->
+    <select id="getKlassIdBySid" resultType="Student">
+        select <include refid="allstudent"></include> from t_student where sid = #{id}
+    </select>
 </mapper>

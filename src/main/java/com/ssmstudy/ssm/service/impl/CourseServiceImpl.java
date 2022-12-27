@@ -3,13 +3,11 @@ package com.ssmstudy.ssm.service.impl;
 import com.google.gson.*;
 import com.ssmstudy.ssm.Const;
 import com.ssmstudy.ssm.mapper.*;
-import com.ssmstudy.ssm.pojo.DataResult;
-import com.ssmstudy.ssm.pojo.Klass;
-import com.ssmstudy.ssm.pojo.Professional;
-import com.ssmstudy.ssm.pojo.User;
+import com.ssmstudy.ssm.pojo.*;
 import com.ssmstudy.ssm.pojo.course.Course;
 import com.ssmstudy.ssm.pojo.course.CourseInfo;
 import com.ssmstudy.ssm.pojo.course.result.*;
+import com.ssmstudy.ssm.pojo.student.Student;
 import com.ssmstudy.ssm.service.CouserService;
 import com.ssmstudy.ssm.utils.FSearchTool;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +28,10 @@ public class CourseServiceImpl implements CouserService {
     private CourseInfoMapper courseInfoMapper;
 
     @Autowired
+    private CollegeMapper collegeMapper;
+    @Autowired
+    private StudentMapper studentMapper;
+    @Autowired
     private KlassMapper klassMapper;
 
     @Autowired
@@ -46,7 +48,7 @@ public class CourseServiceImpl implements CouserService {
             List<CourseInfo> courseInfos1 = new ArrayList<>();
             List<ResultCourse> resultCourse = new ArrayList<>();
             for (CourseInfo course:
-                 courseByZhou) {
+                    courseByZhou) {
                 if (course.getWeekday()==i){
                     courseInfos1.add(course);
                 }
@@ -86,6 +88,63 @@ public class CourseServiceImpl implements CouserService {
         dataResult.setMsg("查询成功");
         dataResult.setData(resultCourseInfoList);
         return dataResult;
+
+    }
+
+    @Override
+    public DataResult getStudentCourseInfoByZhou(Integer zhou, Integer id) {
+        List<ResultCourseInfo> courseInfos = new ArrayList<>();
+        Student klassIdBySid = studentMapper.getKlassIdBySid(id);
+        if (klassIdBySid.getKlassId()!=null){
+            List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(zhou,klassIdBySid.getKlassId());
+            List<Course> courses = courseMapper.getAllCourseByKlass();//暂时模拟下班级查询课表
+            List<ResultCourseInfo> resultCourseInfoList = new ArrayList<>();
+            for (int i=1;i<=7;i++){
+                List<CourseInfo> courseInfos1 = new ArrayList<>();
+                List<ResultCourse> resultCourse = new ArrayList<>();
+                for (CourseInfo course:
+                        courseByZhou) {
+                    if (course.getWeekday()==i){
+                        courseInfos1.add(course);
+                    }
+                }
+                for (int j=0;j<courseInfos1.size();j++){//一天的所有课，在分别取查数据库取得公共
+
+                    CourseInfo courseInfo = courseInfos1.get(j);
+                    for (int l=0;l< courses.size();l++){//在所有的课程中去找详细信息里面对应的课程
+                        if (courses.get(l).getId()==courseInfo.getCourseId()){//说明这节课的信息找到了,courses.get(l).getCourseTeacherId()需要转换成teachername,courses.get(l).getKlass()需要转换成classname
+
+                            Klass klassById = klassMapper.getKlassById(courseInfo.getKlass());
+                            Professional professionalById = professionalMapper.getProfessionalById(klassById.getProfessionalId());
+                            User teacherInfo = userMapper.getTeacherInfo(courses.get(l).getCourseTeacherId());
+                            ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                            resultCourse.add(resultCourse1);
+                            if (courseInfo.getLength()>=2){
+                                for (int o=0;o<courseInfo.getLength()-1;o++){
+                                    ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                                    resultCourse.add(resultCourse2);
+                                }
+                            }
+                        }
+                    }
+                }
+                ResultCourseInfo resultCourseInfo = new ResultCourseInfo(i-1,resultCourse);//周1就是0，周二就是1
+                resultCourseInfoList.add(resultCourseInfo);
+
+            }
+
+            ResultCourseInfo courseInfo = new ResultCourseInfo();
+
+
+
+//        System.out.println(resultCourseInfoList);
+            DataResult dataResult = new DataResult();
+            dataResult.setStatus(200);
+            dataResult.setMsg("查询成功");
+            dataResult.setData(resultCourseInfoList);
+            return dataResult;
+        }
+        return new DataResult(Const.CHANGEERROR,"查询失败",null);
     }
 
     @Override
@@ -166,6 +225,28 @@ public class CourseServiceImpl implements CouserService {
 
         for (CourseInfo c :
         maxWeek) {
+            if (c.getWeek().intValue()>= max){
+                max = c.getWeek().intValue();
+            }
+        }
+        DataResult dataResult = new DataResult();
+        dataResult.setData(max);
+        dataResult.setMsg("获取成功");
+        dataResult.setStatus(Const.ZHENGCHANG);
+        return dataResult;
+    }
+
+    @Override
+    public DataResult getStudentMaxWeek(Integer sid) {
+        Student klassIdBySid = studentMapper.getKlassIdBySid(sid);
+        if (klassIdBySid.getKlassId()==null){
+            return new DataResult(Const.CHANGEERROR,"错误",null);
+        }
+        List<CourseInfo> maxWeek = courseInfoMapper.getMaxWeek(klassIdBySid.getKlassId());
+        int max = 0;
+
+        for (CourseInfo c :
+                maxWeek) {
             if (c.getWeek().intValue()>= max){
                 max = c.getWeek().intValue();
             }
@@ -260,5 +341,88 @@ public class CourseServiceImpl implements CouserService {
         dataResult.setStatus(Const.ZHENGCHANG);
         dataResult.setData(resultCascaderData);
         return dataResult;
+    }
+
+    @Override
+    public DataResult getStudentThisWeekCourseInfo(Integer sid) {
+        Student klassIdBySid = studentMapper.getKlassIdBySid(sid);
+        if (klassIdBySid.getKlassId()==null){
+            return new DataResult(Const.CHANGEERROR,"查询失败",null);
+        }
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
+        Date d=new Date();
+        String startday="2022-12-5";//开学日期
+        System.out.println("当天日期："+format.format(d));
+        System.out.println("开课日期："+startday);
+        //计算当前日期是开学的第几周
+        Date d1 = null;
+        try {
+            d1 = format.parse(startday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        int weeks = getweek(d,d1) ;//开学第几周
+        String currSun = dateFm.format(d);//获取当前日期是星期几
+        System.out.println("当天为开学第"+weeks+"周---"+currSun);
+
+
+        List<ResultCourseInfo> courseInfos = new ArrayList<>();
+        List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(weeks,klassIdBySid.getKlassId());
+        List<Course> courses = courseMapper.getAllCourseByKlass();//暂时模拟下班级查询课表
+        List<ResultCourseInfo> resultCourseInfoList = new ArrayList<>();
+        for (int i=1;i<=7;i++){
+            List<CourseInfo> courseInfos1 = new ArrayList<>();
+            List<ResultCourse> resultCourse = new ArrayList<>();
+
+            for (CourseInfo course:
+                    courseByZhou) {
+                if (course.getWeekday()==i){
+                    courseInfos1.add(course);
+                }
+            }
+            for (int j=0;j<courseInfos1.size();j++){//一天的所有课，在分别取查数据库取得公共
+
+                CourseInfo courseInfo = courseInfos1.get(j);
+                for (int l=0;l< courses.size();l++){//在所有的课程中去找详细信息里面对应的课程
+                    if (courses.get(l).getId()==courseInfo.getCourseId()){//说明这节课的信息找到了,courses.get(l).getCourseTeacherId()需要转换成teachername,courses.get(l).getKlass()需要转换成classname
+                        Klass klassById = klassMapper.getKlassById(courseInfo.getKlass());
+//                        System.out.println("getProfessionalId = " + klassById.getProfessionalId());
+                        Professional professionalById = professionalMapper.getProfessionalById(klassById.getProfessionalId());
+                        User teacherInfo = userMapper.getTeacherInfo(courses.get(l).getCourseTeacherId());
+                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                        resultCourse.add(resultCourse1);
+                        if (courseInfo.getLength()>=2){
+                            for (int o=0;o<courseInfo.getLength()-1;o++){
+                                ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                                resultCourse.add(resultCourse2);
+                            }
+                        }
+                    }
+                }
+            }
+            ResultCourseInfo resultCourseInfo = new ResultCourseInfo(i-1,resultCourse);//周1就是0，周二就是1
+            resultCourseInfoList.add(resultCourseInfo);
+
+        }
+
+        ResultCourseInfo courseInfo = new ResultCourseInfo();
+
+        ResultCourseInfoThisWeek resultCourseInfoThisWeek = new ResultCourseInfoThisWeek(resultCourseInfoList,weeks);
+
+//        System.out.println(resultCourseInfoList);
+        DataResult dataResult = new DataResult();
+        dataResult.setStatus(200);
+        dataResult.setMsg("查询成功");
+        dataResult.setData(resultCourseInfoThisWeek);
+        return dataResult;
+    }
+
+    @Override
+    public DataResult getMDCourseAllInfo() {
+        List<College> allCollege = collegeMapper.getAllCollege();
+        List<Professional> allProfessional = professionalMapper.getAllProfessional();
+
+        return null;
     }
 }
