@@ -11,14 +11,14 @@ import com.ssmstudy.ssm.pojo.course.Course;
 import com.ssmstudy.ssm.pojo.course.CourseInfo;
 import com.ssmstudy.ssm.pojo.course.result.*;
 import com.ssmstudy.ssm.service.CouserService;
+import com.ssmstudy.ssm.utils.FSearchTool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static com.ssmstudy.ssm.utils.CourseUtil.getweek;
 
@@ -109,7 +109,7 @@ public class CourseServiceImpl implements CouserService {
 
 
         List<ResultCourseInfo> courseInfos = new ArrayList<>();
-        List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(weeks,1);
+        List<CourseInfo> courseByZhou = courseInfoMapper.getCourseByZhou(weeks,1);//默认1班，得改成传参过来
         List<Course> courses = courseMapper.getAllCourseByKlass();//暂时模拟下班级查询课表
         List<ResultCourseInfo> resultCourseInfoList = new ArrayList<>();
         for (int i=1;i<=7;i++){
@@ -203,22 +203,51 @@ public class CourseServiceImpl implements CouserService {
 
     @Override
     public DataResult getClassListByTid(Integer tid) {
+        List<ResultCascaderData> resultCascaderData = new ArrayList<>();//最终返回的结果
         List<Course> courseList = courseMapper.getCourseByTid(tid);
-
+        List<Integer> klassList = new ArrayList<>();
+        List<CourseInfo> courseInfoAll = new ArrayList<>();
+        List<Klass> klasses = new ArrayList<>();//涉及到的全部班级
+        List<Professional> professionals = new ArrayList<>();//全部涉及到的专业
+        //暂时在分类处不加入学院分类，太麻烦了
         for (Course course:
-             courseList) {
+             courseList) {//避免后序升级一个老师可能多个课程，保证了通用性
             List<CourseInfo> courseInfos = courseInfoMapper.getCourseInfoByCourseId(course.getId());
-            //除重复，算法
-
+            courseInfoAll.addAll(courseInfos);
         }
-        List<Professional> allProfessional = professionalMapper.getAllProfessional();
-        List<ResultCascaderData> resultCascaderData = new ArrayList<>();
+        //除重复，算法
+        courseInfoAll = courseInfoAll.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(CourseInfo :: getKlass))), ArrayList::new));
+        for (CourseInfo c:
+                courseInfoAll) {
+            klassList.add(c.getKlass());//把去重后的所有班级id加入list
+            Klass klassById = klassMapper.getKlassById(c.getKlass());
+            klasses.add(klassById);//顺便把班级表都查出来
+        }
+
+        List<Klass> klasses2 = klasses.stream().collect(Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Klass::getProfessionalId))), ArrayList::new));
+
+        //查出所有涉及到的专业表
+        for (Klass k:
+             klasses2) {
+            Professional professionalById = professionalMapper.getProfessionalById(k.getProfessionalId());
+            professionals.add(professionalById);
+        }
+        //后序操作和admin一样了
 
 
         for (Professional pro:
-                allProfessional) {
+                professionals) {
+
             List<ResultCascaderItem> resultCascaderItems = new ArrayList<>();
-            List<Klass> klassByProfessionalId = klassMapper.getKlassByProfessionalId(pro.getId());
+
+
+            List<Klass> klassByProfessionalId = new ArrayList<>();
+            for (Klass k:
+                 klasses) {
+                if (k.getProfessionalId().intValue()==pro.getId().intValue()){
+                    klassByProfessionalId.add(k);
+                }
+            }
             for (Klass klass:
                     klassByProfessionalId) {
                 ResultCascaderItem resultCascaderItem = new ResultCascaderItem(klass.getKlassId(),klass.getKlassName());
