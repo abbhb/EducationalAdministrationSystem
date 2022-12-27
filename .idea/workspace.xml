@@ -9,25 +9,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="课程表展示功能基本完成">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/IRedisService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/IRedisServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/SerializeUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application-redis.xml" afterDir="false" />
+    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="--fix 修复了无法修改个人信息的bug">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/PassWordMD5.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Authorization/AuthorizationInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Authorization/AuthorizationInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseInfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseInfoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CourseMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/DataResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/DataResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/login/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/login/LoginResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/RedisService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/CouserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/CouserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/IRedisServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/IRedisServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/utils/RedisUtils.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/SpringMVC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SpringMVC.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/redis.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/redis.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestForRedis.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestForRedis.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseInfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseInfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/UserMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +152,8 @@
       <workItem from="1671002027156" duration="15904000" />
       <workItem from="1671086937586" duration="4103000" />
       <workItem from="1671859638320" duration="19242000" />
-      <workItem from="1671946982912" duration="12212000" />
+      <workItem from="1671946982912" duration="12422000" />
+      <workItem from="1672028866085" duration="12732000" />
     </task>
     <task id="LOCAL-00001" summary="基本">
       <created>1670832903310</created>
@@ -179,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671859662152</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="--fix 修复了无法修改个人信息的bug">
+      <created>1671959426351</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671959426351</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +200,8 @@
     <MESSAGE value="基本" />
     <MESSAGE value="18:58" />
     <MESSAGE value="课程表展示功能基本完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="课程表展示功能基本完成" />
+    <MESSAGE value="--fix 修复了无法修改个人信息的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="--fix 修复了无法修改个人信息的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

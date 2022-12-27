@@ -47,6 +47,7 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
             System.out.println("校验了，"+b);
             System.out.println("logintoken:"+authorization);
             if (b) {
+
                 return true;
 
             /*权限校验开始

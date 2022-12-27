@@ -114,7 +114,7 @@
       -->
 
     <bean id="IRedisServiceImpl" scope="prototype" class="com.ssmstudy.ssm.service.impl.IRedisServiceImpl">
-<!--        <constructor-arg  name="redisTemplate" ref="redisTemplate" />-->
+        <constructor-arg  name="redisTemplate" ref="redisTemplate" />
     </bean>
 
     <!--拦截器bean-->

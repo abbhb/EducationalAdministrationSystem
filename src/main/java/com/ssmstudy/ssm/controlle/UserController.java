@@ -12,9 +12,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 /**
+ * (*)为needToken
  * 登录-->/login-->post
  * 手动检验token-->/login/checktoken-->post
- * 安全退出（手动删除token）-->/logout-->get
+ * (*)安全退出（手动删除token）-->/logout-->get
+ * (*)更新用户信息-->/updataforuser-->post
+ * (*)修改用户密码-->/user/changepassword-->post
+ *
  */
 @Controller
 @CrossOrigin("*")
@@ -58,5 +62,17 @@ public class UserController {
         String email = (String) user.get("email");
         DataResult dataResult = userService.updataForUser(token,name,age,gender,email);
         return dataResult;
+    }
+
+    @RequestMapping(value = "/user/changepassword",method = RequestMethod.POST)
+    @ResponseBody
+    @NeedToken
+    public DataResult changePassWord(@RequestHeader(value="Authorization", defaultValue = "") String token, @RequestBody Map<String, Object> user){
+        Integer id = (Integer) user.get("id");
+        String username = (String) user.get("username");
+        String password = (String) user.get("password");
+        String newpassword = (String) user.get("newpassword");
+        String checknewpassword = (String) user.get("checknewpassword");
+        return userService.changePassWord(id,username,password,newpassword,checknewpassword,token);
     }
 }

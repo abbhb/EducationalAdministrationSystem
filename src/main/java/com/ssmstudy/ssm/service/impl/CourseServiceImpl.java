@@ -200,4 +200,36 @@ public class CourseServiceImpl implements CouserService {
         dataResult.setData(resultCascaderData);
         return dataResult;
     }
+
+    @Override
+    public DataResult getClassListByTid(Integer tid) {
+        List<Course> courseList = courseMapper.getCourseByTid(tid);
+
+        for (Course course:
+             courseList) {
+            List<CourseInfo> courseInfos = courseInfoMapper.getCourseInfoByCourseId(course.getId());
+            //除重复，算法
+
+        }
+        List<Professional> allProfessional = professionalMapper.getAllProfessional();
+        List<ResultCascaderData> resultCascaderData = new ArrayList<>();
+
+
+        for (Professional pro:
+                allProfessional) {
+            List<ResultCascaderItem> resultCascaderItems = new ArrayList<>();
+            List<Klass> klassByProfessionalId = klassMapper.getKlassByProfessionalId(pro.getId());
+            for (Klass klass:
+                    klassByProfessionalId) {
+                ResultCascaderItem resultCascaderItem = new ResultCascaderItem(klass.getKlassId(),klass.getKlassName());
+                resultCascaderItems.add(resultCascaderItem);
+            }
+            ResultCascaderData resultCascaderData1 = new ResultCascaderData(pro.getId(),pro.getProfessionalName(),resultCascaderItems);
+            resultCascaderData.add(resultCascaderData1);
+        }
+        DataResult dataResult = new DataResult();
+        dataResult.setStatus(Const.ZHENGCHANG);
+        dataResult.setData(resultCascaderData);
+        return dataResult;
+    }
 }

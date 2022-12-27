@@ -17,7 +17,7 @@ public class IRedisServiceImpl implements IRedisService {
 
     private RedisTemplate redisTemplate;
 
-    @Autowired
+//    @Autowired
     public IRedisServiceImpl(RedisTemplate redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
@@ -49,6 +49,7 @@ public class IRedisServiceImpl implements IRedisService {
             Object o = redisTemplate.opsForValue().get(token);
             if (o!=null){
                 User user= (User)o;
+                System.out.println(user);
                 return user;
             }
             else {

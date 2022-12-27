@@ -16,6 +16,23 @@ public class Const {
      */
     public static final int ZHENGCHANG = 200;
 
+    //更新
     public static final int UPDATAERROR = 801;
+
+
+
+
+    //删除
     public static final int SHANCHUSHIBAI = 701;
+
+
+
+
+    //修改
+    /**
+     * 两次密码不一致
+     */
+    public static final int CHANGEERROR = 601;
+    public static final int NOTSAFE = 602;
+    public static final int CHANGERIGHT = 666;
 }

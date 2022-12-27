@@ -7,12 +7,15 @@ import com.ssmstudy.ssm.pojo.User;
 import com.ssmstudy.ssm.service.IRedisService;
 import com.ssmstudy.ssm.service.UserService;
 import com.ssmstudy.ssm.utils.JWT;
+import com.ssmstudy.ssm.utils.PassWordMD5;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+
+import static com.ssmstudy.ssm.utils.PassWordMD5.passWordMD5JM;
 
 
 @Service
@@ -27,11 +30,11 @@ public class UserServiceImpl implements UserService{
     public DataResult login(String username, String password) {
         DataResult dataResult = new DataResult();
         try {
-            System.out.println("username+\",\"+password = " + username+","+password);
-            User user = userMapper.login(username,password);
+
+            User user = userMapper.login(username,passWordMD5JM(password));
             System.out.println(user);
             
-            if (user.getId()!=null&&user.getUsername()!=null){
+            if (user.getId()!=null&&user.getUsername()!=null&&user.getSafe()==0){
                 dataResult.setMsg("登录成功!");//后续可以加上时间和对应欢迎语
                 //在此处返回token
                 String token = JWT.generToken(user);
@@ -41,7 +44,20 @@ public class UserServiceImpl implements UserService{
                 user.setToken(token);
                 dataResult.setStatus(Const.ZHENGCHANG);
                 dataResult.setData(user);
-            }else {
+            } else if (user.getSafe()==1) {//异常
+                dataResult.setMsg("密码已经泄露,请修改!");//后续可以加上时间和对应欢迎语
+                //在此处返回token
+                String token = JWT.generToken(user);
+                iRedisService.setUserByToken("logintoken:"+token,user);
+                Claims claims = JWT.checkJWT(token);
+                System.out.println(claims);
+                user.setToken(token);
+                dataResult.setStatus(Const.ZHENGCHANG);
+                dataResult.setData(user);
+            } else if (user.getSafe()==2) {
+                dataResult.setMsg("账号已封禁");
+                dataResult.setStatus(Const.TOKENGUOQI);
+            } else {
                 dataResult.setStatus(Const.TOKENGUOQI);
                 dataResult.setMsg("请检查密码或者用户名是否有误!");
             }
@@ -65,8 +81,21 @@ public class UserServiceImpl implements UserService{
                 Integer ids = o.getId();
                 System.out.println("ids = " + ids);
                 User user = userMapper.getUserById(ids.intValue());
-                dataResult.setData(user);
-                dataResult.setStatus(Const.ZHENGCHANG);
+
+                if (user.getSafe()==0){
+                    dataResult.setMsg("token登录");
+                    dataResult.setData(user);
+                    dataResult.setStatus(Const.ZHENGCHANG);
+                }else if (user.getSafe()==1){
+                    dataResult.setMsg("密码可能已经泄露");
+                    dataResult.setData(user);
+                    dataResult.setStatus(Const.ZHENGCHANG);
+                }else if (user.getSafe()==2){
+                    dataResult.setMsg("账号已被封禁");
+                    dataResult.setStatus(Const.TOKENGUOQI);
+                }
+
+
             }
 
 
@@ -108,4 +137,54 @@ public class UserServiceImpl implements UserService{
         dataResult.setStatus(Const.UPDATAERROR);
         return dataResult;
     }
+
+    @Override
+    public DataResult changePassWord(Integer id, String username, String password, String newpassword, String checknewpassword,String token) {
+        User o = iRedisService.getUserByToken("logintoken:" + token);
+//        System.out.println("o = " + o);
+        if (o!=null){
+//            System.out.println("id = " + id);
+//            System.out.println("o.getId() = " + o.getId());
+            if (id.intValue() != o.getId().intValue()){
+                //假id
+                int i = userMapper.updataUserSafe(o.getId(), 1);
+//                System.out.println("userMapper.updataUserSafe,更新条数 = " + i);
+                return new DataResult(Const.NOTSAFE,"环境异常!",null);
+            }
+            if (!newpassword.equals(checknewpassword)){
+                int i = userMapper.updataUserSafe(o.getId(), 1);
+                return new DataResult(Const.CHANGEERROR,"两次密码不一致!",null);
+            }
+
+            if (username == null){
+                int i = userMapper.updataUserSafe(o.getId(), 1);
+                return new DataResult(Const.NOTSAFE,"环境异常!",null);
+            }
+            if (username.equals("")){
+                int i = userMapper.updataUserSafe(o.getId(), 1);
+                return new DataResult(Const.NOTSAFE,"环境异常!",null);
+            }
+
+            String jmhPassWord = passWordMD5JM(password);
+            String jmhnewpassword = passWordMD5JM(newpassword);
+            if (!jmhPassWord.equals(userMapper.getPasswordById(o.getId()))){
+                int i = userMapper.updataUserSafe(o.getId(), 1);
+                return new DataResult(Const.NOTSAFE,"原密码错误!",null);
+            }
+
+
+            //修改密码
+            if (userMapper.updataUserPassword(o.getId(),jmhnewpassword)==1){
+                iRedisService.delUserByToken("logintoken:" + token);//删除token
+                return new DataResult(Const.CHANGERIGHT,"修改成功",null);
+
+            }
+            return new DataResult(Const.CHANGEERROR,"修改失败",null);
+
+        }else {
+            return new DataResult(Const.CHANGEERROR,"服务异常",null);
+        }
+    }
+
+
 }

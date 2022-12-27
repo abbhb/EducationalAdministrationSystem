@@ -44,4 +44,27 @@ public interface UserMapper {
      * @return
      */
     User getTeacherInfo(@Param("teacherId") Integer teacherId);
+
+    /**
+     * 更新用户safe
+     * @param id
+     * @param safe
+     * @return
+     */
+    int updataUserSafe(@Param("id") Integer id,@Param("safe") Integer safe);
+
+    /**
+     * 通过id获取密码
+     * @param id
+     * @return
+     */
+    String getPasswordById(@Param("id") Integer id);
+
+    /**
+     * 通过id修改密码
+     * @param id
+     * @param password
+     * @return 为1就是成功
+     */
+    int updataUserPassword(@Param("id") Integer id,@Param("password") String password);
 }

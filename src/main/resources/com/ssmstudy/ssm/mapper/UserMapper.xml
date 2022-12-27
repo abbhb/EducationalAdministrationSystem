@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssmstudy.ssm.mapper.UserMapper">
     <sql id="userall">
-        id,name,username,email,age,register_time,last_modification_time,dept,userphoto,gender
+        id,name,username,email,age,register_time,last_modification_time,dept,userphoto,gender,safe
     </sql>
     <sql id="teacherInfo">
         id,name,userphoto
@@ -31,5 +31,20 @@
 <!--    int updataForUser(int ids, String name, Integer age, String gender, String email);-->
     <update id="updataForUser">
         update t_user set name=#{name},age=#{age},gender=#{gender},email=#{email} where id=#{ids}
+    </update>
+
+<!--    int updataUserSafe(@Param("id") int id,@Param("safe") Integer safe);-->
+    <update id="updataUserSafe">
+        update t_user set safe = #{safe} where id=#{id}
+    </update>
+
+<!--    String getPasswordById(@Param("id") Integer id);-->
+    <select id="getPasswordById" resultType="String">
+        select password from t_user where id = #{id}
+    </select>
+
+<!--    int updataUserPassword(@Param("id") Integer id,@Param("password") String password);-->
+    <update id="updataUserPassword">
+        update t_user set password=#{password},safe = 0 where id=#{id}
     </update>
 </mapper>

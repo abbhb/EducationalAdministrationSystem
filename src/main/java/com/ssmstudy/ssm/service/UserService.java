@@ -35,4 +35,19 @@ public interface UserService {
      * @return
      */
     DataResult updataForUser(String token,String name, Integer age, String gender, String email);
+
+
+
+
+    /**
+     * 修改密码
+     * @param id
+     * @param username
+     * @param password
+     * @param newpassword
+     * @param checknewpassword
+     * @param token
+     * @return
+     */
+    DataResult changePassWord(Integer id, String username, String password, String newpassword, String checknewpassword,String token);
 }

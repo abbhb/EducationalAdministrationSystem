@@ -26,6 +26,7 @@ public class User implements Serializable {
     private String userphoto;
 
 
+    private Integer safe;
     private String gender;
 
 
@@ -129,6 +130,14 @@ public class User implements Serializable {
     public User() {
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -143,19 +152,20 @@ public class User implements Serializable {
                 ", dept=" + dept +
                 ", token='" + token + '\'' +
                 ", userphoto='" + userphoto + '\'' +
+                ", safe=" + safe +
                 ", gender='" + gender + '\'' +
                 '}';
     }
 
-    public String getGender() {
-        return gender;
+    public Integer getSafe() {
+        return safe;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setSafe(Integer safe) {
+        this.safe = safe;
     }
 
-    public User(Integer id, String name, String username, String password, String email, Integer age, Date registerTime, Date lastModificationTime, Integer dept, String userphoto, String gender) {
+    public User(Integer id, String name, String username, String password, String email, Integer age, Date registerTime, Date lastModificationTime, Integer dept, String token, String userphoto, Integer safe, String gender) {
         this.id = id;
         this.name = name;
         this.username = username;
@@ -165,9 +175,12 @@ public class User implements Serializable {
         this.registerTime = registerTime;
         this.lastModificationTime = lastModificationTime;
         this.dept = dept;
+        this.token = token;
         this.userphoto = userphoto;
+        this.safe = safe;
         this.gender = gender;
     }
+
     public User(Integer id, String name, String username, String password, String email, Integer age, Date registerTime, Date lastModificationTime, Integer dept, String token, String userphoto, String gender) {
         this.id = id;
         this.name = name;

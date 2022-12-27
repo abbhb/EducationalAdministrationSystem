@@ -21,4 +21,11 @@ public interface CourseInfoMapper {
      * @return
      */
     List<CourseInfo> getMaxWeek(@Param("klass") Integer klass);
+
+    /**
+     * 通过课程id获取课程信息
+     * @param id
+     * @return
+     */
+    List<CourseInfo> getCourseInfoByCourseId(Integer id);
 }

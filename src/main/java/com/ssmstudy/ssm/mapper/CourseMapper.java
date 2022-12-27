@@ -19,4 +19,11 @@ public interface CourseMapper {
      * @return
      */
     List<Course> getAllCourseByKlass();
+
+    /**
+     * 获取某个老师所有的课程列表
+     * @param tid
+     * @return
+     */
+    List<Course> getCourseByTid(Integer tid);
 }

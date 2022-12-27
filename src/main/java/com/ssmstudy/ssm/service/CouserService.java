@@ -19,5 +19,17 @@ public interface CouserService {
 
     DataResult getMaxWeek(Integer klassid);
 
+    /**
+     * 获取所有的学院班级
+     * @return
+     */
     DataResult getCascaderList();
+
+
+    /**
+     * 根据tid获取学院班级
+     * @param tid
+     * @return
+     */
+    DataResult getClassListByTid(Integer tid);
 }

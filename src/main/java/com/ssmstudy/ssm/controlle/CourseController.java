@@ -5,10 +5,7 @@ import com.ssmstudy.ssm.pojo.DataResult;
 import com.ssmstudy.ssm.service.CouserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Signature;
 import java.util.Date;
@@ -55,5 +52,11 @@ public class CourseController {
     @RequestMapping(value = "/course/getcascaderlist",method = RequestMethod.GET)
     public DataResult getCascaderList(){
         return couserService.getCascaderList();
+    }
+
+    @NeedToken
+    @RequestMapping(value = "/course/getclasslistbytid",method = RequestMethod.GET)
+    public DataResult getClassListByTid(@RequestParam(name = "tid", required = true)Integer tid){
+        return couserService.getClassListByTid(tid);//tid其实就是id
     }
 }

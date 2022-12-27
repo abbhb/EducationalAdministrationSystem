@@ -13,4 +13,8 @@
     <select id="getAllCourseByKlass" resultType="Course">
         select <include refid="allsql"></include> from t_course
     </select>
+<!--    List<Course> getCourseByTid(Integer tid);-->
+    <select id="getCourseByTid" resultType="Course">
+        select <include refid="allsql"></include> from t_course where course_teacher_id = #{tid}
+    </select>
 </mapper>

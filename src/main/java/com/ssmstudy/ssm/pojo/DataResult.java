@@ -25,6 +25,15 @@ public class DataResult {
         this.data = data;
     }
 
+    public DataResult() {
+    }
+
+    public DataResult(int status, String msg, Object data) {
+        this.status = status;
+        this.msg = msg;
+        this.data = data;
+    }
+
     public String toString() {
         return "DataResult [status=" + status + ", msg=" + msg + ", data=" + data + "]";
     }

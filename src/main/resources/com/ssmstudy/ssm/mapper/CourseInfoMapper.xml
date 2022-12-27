@@ -14,4 +14,8 @@
     <select id="getMaxWeek" resultType="CourseInfo">
         select <include refid="maxweek"></include>  from t_courseinfo where klass = #{klass}
     </select>
+<!--    List<CourseInfo> getCourseInfoByCourseId(Integer id);-->
+    <select id="getCourseInfoByCourseId" resultType="Integer">
+        select <include refid="allcourseinfo"></include> from t_courseinfo where course_id = #{id}
+    </select>
 </mapper>
