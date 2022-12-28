@@ -62,11 +62,11 @@ public class CourseServiceImpl implements CouserService {
                         Klass klassById = klassMapper.getKlassById(courseInfo.getKlass());
                         Professional professionalById = professionalMapper.getProfessionalById(klassById.getProfessionalId());
                         User teacherInfo = userMapper.getTeacherInfo(courses.get(l).getCourseTeacherId());
-                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                         resultCourse.add(resultCourse1);
                         if (courseInfo.getLength()>=2){
                             for (int o=0;o<courseInfo.getLength()-1;o++){
-                                ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                                ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                                 resultCourse.add(resultCourse2);
                             }
                         }
@@ -117,11 +117,11 @@ public class CourseServiceImpl implements CouserService {
                             Klass klassById = klassMapper.getKlassById(courseInfo.getKlass());
                             Professional professionalById = professionalMapper.getProfessionalById(klassById.getProfessionalId());
                             User teacherInfo = userMapper.getTeacherInfo(courses.get(l).getCourseTeacherId());
-                            ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                            ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                             resultCourse.add(resultCourse1);
                             if (courseInfo.getLength()>=2){
                                 for (int o=0;o<courseInfo.getLength()-1;o++){
-                                    ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                                    ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                                     resultCourse.add(resultCourse2);
                                 }
                             }
@@ -190,11 +190,11 @@ public class CourseServiceImpl implements CouserService {
 //                        System.out.println("getProfessionalId = " + klassById.getProfessionalId());
                         Professional professionalById = professionalMapper.getProfessionalById(klassById.getProfessionalId());
                         User teacherInfo = userMapper.getTeacherInfo(courses.get(l).getCourseTeacherId());
-                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                         resultCourse.add(resultCourse1);
                         if (courseInfo.getLength()>=2){
                             for (int o=0;o<courseInfo.getLength()-1;o++){
-                                ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                                ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                                 resultCourse.add(resultCourse2);
                             }
                         }
@@ -390,12 +390,18 @@ public class CourseServiceImpl implements CouserService {
 //                        System.out.println("getProfessionalId = " + klassById.getProfessionalId());
                         Professional professionalById = professionalMapper.getProfessionalById(klassById.getProfessionalId());
                         User teacherInfo = userMapper.getTeacherInfo(courses.get(l).getCourseTeacherId());
-                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
+                        ResultCourse resultCourse1 = new ResultCourse(courseInfo.getBegin(),courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
                         resultCourse.add(resultCourse1);
                         if (courseInfo.getLength()>=2){
                             for (int o=0;o<courseInfo.getLength()-1;o++){
-                                ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId());
-                                resultCourse.add(resultCourse2);
+                                if (o%2!=1){
+                                    ResultCourse resultCourse2 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
+                                    resultCourse.add(resultCourse2);
+                                }
+                                if (o%2==1){
+                                    ResultCourse resultCourse3 = new ResultCourse(courseInfo.getBegin()+o+1,courses.get(l).getCourseName(),professionalById.getProfessionalName(),klassById.getKlassName(),courseInfo.getClassroom(),teacherInfo.getName(),courses.get(l).getCourseTeacherId(),courseInfo.getCourseId(),courseInfo.getLength());
+                                    resultCourse.add(resultCourse3);
+                                }
                             }
                         }
                     }

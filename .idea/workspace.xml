@@ -9,16 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="CourseServiceImpl.java--&gt;112--&gt;fix://默认1班，得改成传参过来">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/CollegeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/College.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/CollegeMapper.xml" afterDir="false" />
+    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="下一步：完成课程编辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/controlle/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/StudentMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/mapper/StudentMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/CouserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/CouserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/StudentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ssmstudy/ssm/mapper/StudentMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +136,8 @@
       <workItem from="1671859638320" duration="19242000" />
       <workItem from="1671946982912" duration="12422000" />
       <workItem from="1672028866085" duration="12732000" />
-      <workItem from="1672120437454" duration="13649000" />
+      <workItem from="1672120437454" duration="15962000" />
+      <workItem from="1672203899484" duration="1853000" />
     </task>
     <task id="LOCAL-00001" summary="基本">
       <created>1670832903310</created>
@@ -200,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672132198570</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="下一步：完成课程编辑">
+      <created>1672142651449</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672142651449</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +215,8 @@
     <MESSAGE value="--fix 修复了无法修改个人信息的bug" />
     <MESSAGE value="正常备份" />
     <MESSAGE value="CourseServiceImpl.java--&gt;112--&gt;fix://默认1班，得改成传参过来" />
-    <option name="LAST_COMMIT_MESSAGE" value="CourseServiceImpl.java--&gt;112--&gt;fix://默认1班，得改成传参过来" />
+    <MESSAGE value="下一步：完成课程编辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="下一步：完成课程编辑" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

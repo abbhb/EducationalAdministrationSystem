@@ -17,11 +17,12 @@ public class ResultCourse {
 
     private Integer courseId;
 
+    private Integer length;
 
     public ResultCourse() {
     }
 
-    public ResultCourse(Integer index, String subject, String major, String klass, String classroom, String teacherName, Integer teacherId, Integer courseId) {
+    public ResultCourse(Integer index, String subject, String major, String klass, String classroom, String teacherName, Integer teacherId, Integer courseId, Integer length) {
         this.index = index;
         this.subject = subject;
         this.major = major;
@@ -30,6 +31,23 @@ public class ResultCourse {
         this.teacherName = teacherName;
         this.teacherId = teacherId;
         this.courseId = courseId;
+        this.length = length;
+    }
+
+    public Integer getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Integer getLength() {
+        return length;
+    }
+
+    public void setLength(Integer length) {
+        this.length = length;
     }
 
     @Override
@@ -43,6 +61,7 @@ public class ResultCourse {
                 ", teacherName='" + teacherName + '\'' +
                 ", teacherId=" + teacherId +
                 ", courseId=" + courseId +
+                ", length=" + length +
                 '}';
     }
 
