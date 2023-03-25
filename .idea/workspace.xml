@@ -11,8 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="下一步：完成课程编辑">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/pojo/course/result/ResultCourse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ssmstudy/ssm/service/impl/CourseServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;S:/spring/ssm/ssm/src/main/webapp&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/JavaCode/EducationalAdministrationSystem&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -98,6 +96,19 @@
       <option name="MAIN_CLASS_NAME" value="TestForRedis" />
       <option name="METHOD_NAME" value="testForRedis" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="EducationalAdministrationSystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="EducationalAdministrationSystem" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -138,6 +149,9 @@
       <workItem from="1672028866085" duration="12732000" />
       <workItem from="1672120437454" duration="15962000" />
       <workItem from="1672203899484" duration="1853000" />
+      <workItem from="1678977831173" duration="370000" />
+      <workItem from="1679112729357" duration="667000" />
+      <workItem from="1679228066848" duration="194000" />
     </task>
     <task id="LOCAL-00001" summary="基本">
       <created>1670832903310</created>
