@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="下一步：完成课程编辑">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5d2c4b25-38d7-40de-9e3a-04de693aa56f" name="Changes" comment="提交数据库结构 ssm-v1.sql 仅执行此文件即可" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +86,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="S:\spring\ssm\ssm\src\main\webapp" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\JavaCode\EducationalAdministrationSystem\sql" />
+    </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 8.5">
     <configuration name="TestForRedis.testForRedis" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
@@ -152,6 +153,7 @@
       <workItem from="1678977831173" duration="370000" />
       <workItem from="1679112729357" duration="667000" />
       <workItem from="1679228066848" duration="194000" />
+      <workItem from="1679735017255" duration="67000" />
     </task>
     <task id="LOCAL-00001" summary="基本">
       <created>1670832903310</created>
@@ -216,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672142651449</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="提交数据库结构 ssm-v1.sql 仅执行此文件即可">
+      <created>1679735075113</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679735075113</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +239,8 @@
     <MESSAGE value="正常备份" />
     <MESSAGE value="CourseServiceImpl.java--&gt;112--&gt;fix://默认1班，得改成传参过来" />
     <MESSAGE value="下一步：完成课程编辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="下一步：完成课程编辑" />
+    <MESSAGE value="提交数据库结构 ssm-v1.sql 仅执行此文件即可" />
+    <option name="LAST_COMMIT_MESSAGE" value="提交数据库结构 ssm-v1.sql 仅执行此文件即可" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
